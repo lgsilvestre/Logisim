@@ -6,5 +6,7 @@
 	<classpathentry exported="true" kind="lib" path="libs/fontchooser.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/jh.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/MRJAdapter.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Usuario/Downloads/jripples_3_2_1.jar"/>
+	<classpathentry kind="lib" path="libs/jython-2.5.3.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
