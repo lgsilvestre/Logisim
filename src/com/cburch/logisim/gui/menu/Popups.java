@@ -27,7 +27,8 @@ public class Popups {
 	private static class ProjectPopup extends JPopupMenu
 			implements ActionListener {
 		Project proj;
-		JMenuItem add = new JMenuItem(Strings.get("projectAddCircuitItem"));
+		JMenuItem addLogic = new JMenuItem(Strings.get("projectAddLogicCircuitItem"));
+		JMenuItem addScripted = new JMenuItem(Strings.get("projectAddScriptedCircuitItem"));
 		JMenu load = new JMenu(Strings.get("projectLoadLibraryItem"));
 		JMenuItem loadBuiltin = new JMenuItem(Strings.get("projectLoadBuiltinItem"));
 		JMenuItem loadLogisim = new JMenuItem(Strings.get("projectLoadLogisimItem"));
@@ -41,14 +42,17 @@ public class Popups {
 			load.add(loadLogisim); loadLogisim.addActionListener(this);
 			load.add(loadJar); loadJar.addActionListener(this);
 
-			add(add); add.addActionListener(this);
+			add(addLogic); addLogic.addActionListener(this);
+			add(addScripted); addScripted.addActionListener(this);
 			add(load);
 		}
 
 		public void actionPerformed(ActionEvent e) {
 			Object src = e.getSource();
-			if (src == add) {
-				ProjectCircuitActions.doAddCircuit(proj);
+			if (src == addLogic) {
+				ProjectCircuitActions.doAddLogicCircuit(proj);
+			} else if (src == addScripted) {
+				ProjectCircuitActions.doAddScriptedCircuit(proj);
 			} else if (src == loadBuiltin) {
 				ProjectLibraryActions.doLoadBuiltinLibrary(proj);
 			} else if (src == loadLogisim) {

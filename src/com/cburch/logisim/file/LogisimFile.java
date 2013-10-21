@@ -24,6 +24,7 @@ import javax.xml.transform.TransformerException;
 import org.xml.sax.SAXException;
 
 import com.cburch.logisim.circuit.Circuit;
+import com.cburch.logisim.circuit.LogicCircuit;
 import com.cburch.logisim.circuit.SubcircuitFactory;
 import com.cburch.logisim.comp.Component;
 import com.cburch.logisim.comp.ComponentFactory;
@@ -353,7 +354,7 @@ public class LogisimFile extends Library implements LibraryEventSource {
 	//
 	public static LogisimFile createNew(Loader loader) {
 		LogisimFile ret = new LogisimFile(loader);
-		ret.main = new Circuit("main");
+		ret.main = new LogicCircuit("main");
 		// The name will be changed in LogisimPreferences
 		ret.tools.add(new AddTool(ret.main.getSubcircuitFactory()));
 		return ret;

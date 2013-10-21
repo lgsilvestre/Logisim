@@ -12,15 +12,18 @@ import com.cburch.logisim.util.UnmodifiableList;
 
 class ToolboxToolbarModel extends AbstractToolbarModel
 		implements MenuListener.EnabledListener {
-	private LogisimToolbarItem itemAdd;
+	private LogisimToolbarItem itemAddLogic;
+	private LogisimToolbarItem itemAddScripted;
 	private LogisimToolbarItem itemUp;
 	private LogisimToolbarItem itemDown;
 	private LogisimToolbarItem itemDelete;
 	private List<ToolbarItem> items;
 	
 	public ToolboxToolbarModel(MenuListener menu) {
-		itemAdd = new LogisimToolbarItem(menu, "projadd.gif", LogisimMenuBar.ADD_CIRCUIT,
-				Strings.getter("projectAddCircuitTip"));
+		itemAddLogic = new LogisimToolbarItem(menu, "projadd.gif", LogisimMenuBar.ADD_LOGIC_CIRCUIT,
+				Strings.getter("projectAddLogicCircuitTip"));
+		itemAddScripted = new LogisimToolbarItem(menu, "projadd.gif", LogisimMenuBar.ADD_SCRIPTED_CIRCUIT,
+				Strings.getter("projectAddScriptedCircuitTip"));
 		itemUp = new LogisimToolbarItem(menu, "projup.gif", LogisimMenuBar.MOVE_CIRCUIT_UP,
 				Strings.getter("projectMoveCircuitUpTip"));
 		itemDown = new LogisimToolbarItem(menu, "projdown.gif", LogisimMenuBar.MOVE_CIRCUIT_DOWN,
@@ -29,7 +32,8 @@ class ToolboxToolbarModel extends AbstractToolbarModel
 				Strings.getter("projectRemoveCircuitTip"));
 		
 		items = UnmodifiableList.create(new ToolbarItem[] {
-				itemAdd,
+				itemAddLogic,
+				itemAddScripted,
 				itemUp,
 				itemDown,
 				itemDelete,

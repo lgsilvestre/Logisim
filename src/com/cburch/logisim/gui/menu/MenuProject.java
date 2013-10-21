@@ -36,7 +36,8 @@ class MenuProject extends Menu {
 	private LogisimMenuBar menubar;
 	private MyListener myListener = new MyListener();
 	
-	private MenuItemImpl addCircuit = new MenuItemImpl(this, LogisimMenuBar.ADD_CIRCUIT);
+	private MenuItemImpl addLogicCircuit = new MenuItemImpl(this, LogisimMenuBar.ADD_LOGIC_CIRCUIT);
+	private MenuItemImpl addScriptedCircuit = new MenuItemImpl(this, LogisimMenuBar.ADD_SCRIPTED_CIRCUIT);
 	private JMenu loadLibrary = new JMenu();
 	private JMenuItem loadBuiltin = new JMenuItem();
 	private JMenuItem loadLogisim = new JMenuItem();
@@ -58,7 +59,8 @@ class MenuProject extends Menu {
 	MenuProject(LogisimMenuBar menubar) {
 		this.menubar = menubar;
 
-		menubar.registerItem(LogisimMenuBar.ADD_CIRCUIT, addCircuit);
+		menubar.registerItem(LogisimMenuBar.ADD_LOGIC_CIRCUIT, addLogicCircuit);
+		menubar.registerItem(LogisimMenuBar.ADD_SCRIPTED_CIRCUIT, addScriptedCircuit);
 		loadBuiltin.addActionListener(myListener);
 		loadLogisim.addActionListener(myListener);
 		loadJar.addActionListener(myListener);
@@ -80,7 +82,8 @@ class MenuProject extends Menu {
 		loadLibrary.add(loadLogisim);
 		loadLibrary.add(loadJar);
 		
-		add(addCircuit);
+		add(addLogicCircuit);
+		add(addScriptedCircuit);
 		add(loadLibrary);
 		add(unload);
 		addSeparator();
@@ -112,7 +115,8 @@ class MenuProject extends Menu {
 	
 	public void localeChanged() {
 		setText(Strings.get("projectMenu"));
-		addCircuit.setText(Strings.get("projectAddCircuitItem"));
+		addLogicCircuit.setText(Strings.get("projectAddLogicCircuitItem"));
+		addScriptedCircuit.setText(Strings.get("projectAddScriptedCircuitItem"));
 		loadLibrary.setText(Strings.get("projectLoadLibraryItem"));
 		loadBuiltin.setText(Strings.get("projectLoadBuiltinItem"));
 		loadLogisim.setText(Strings.get("projectLoadLogisimItem"));
@@ -135,7 +139,8 @@ class MenuProject extends Menu {
 	@Override
 	void computeEnabled() {
 		setEnabled(menubar.getProject() != null
-				|| addCircuit.hasListeners()
+				|| addLogicCircuit.hasListeners()
+				|| addScriptedCircuit.hasListeners()
 				|| moveUp.hasListeners()
 				|| moveDown.hasListeners()
 				|| setAsMain.hasListeners()

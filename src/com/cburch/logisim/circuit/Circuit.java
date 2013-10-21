@@ -31,7 +31,7 @@ import com.cburch.logisim.std.wiring.Clock;
 import com.cburch.logisim.util.CollectionUtil;
 import com.cburch.logisim.util.EventSourceWeakSupport;
 
-public class Circuit {
+public abstract class Circuit {
 	private static final PrintStream DEBUG_STREAM = null;
 	
 	private class EndChangedTransaction extends CircuitTransaction {

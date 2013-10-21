@@ -23,6 +23,7 @@ import com.cburch.logisim.analyze.model.Expression;
 import com.cburch.logisim.analyze.model.VariableList;
 import com.cburch.logisim.circuit.Circuit;
 import com.cburch.logisim.circuit.CircuitMutation;
+import com.cburch.logisim.circuit.LogicCircuit;
 import com.cburch.logisim.file.LogisimFileActions;
 import com.cburch.logisim.proj.Project;
 import com.cburch.logisim.proj.Projects;
@@ -193,7 +194,7 @@ class BuildCircuitButton extends JButton {
 			dest.doAction(xn.toAction(Strings.getter("replaceCircuitAction")));
 		} else {
 			// add the circuit
-			Circuit circuit = new Circuit(name);
+			Circuit circuit = new LogicCircuit(name);
 			CircuitMutation xn = CircuitBuilder.build(circuit, model, twoInputs,
 					useNands);
 			xn.execute();
