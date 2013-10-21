@@ -2,6 +2,7 @@ package logisim.scripts;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 import com.cburch.logisim.gui.generic.LFrame;
 
@@ -25,18 +26,24 @@ public class ScriptHandler {
 			interp.exec(script);
 		}
 		catch(Exception e){
+			int length=e.toString().length();
 			errorResult=true;
 			LFrame helpFrame = new LFrame();
-			JLabel textArea=new JLabel(" An error in the script has been found: \n"
-					+e.toString());
+			JPanel panel=new JPanel();
+			JLabel textArea=new JLabel(" An error in the script has been found: "
+					);
+			JLabel errorTextArea=new JLabel(e.toString());
+			panel.add(textArea);
+			panel.add(errorTextArea);
 			helpFrame.setTitle("Logisim Script Error");
 			helpFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-			helpFrame.setSize(300, 100);
-			helpFrame.getContentPane().add(textArea);
+			helpFrame.setSize(length*6, 100);
+			helpFrame.getContentPane().add(panel);
 			helpFrame.setVisible(true);
 		}
 		return errorResult;
 		
 	}
+	
 }
 	
