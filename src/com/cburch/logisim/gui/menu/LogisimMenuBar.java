@@ -36,7 +36,8 @@ public class LogisimMenuBar extends JMenuBar {
 	public static final LogisimMenuItem ADD_CONTROL = new LogisimMenuItem("AddControl");
 	public static final LogisimMenuItem REMOVE_CONTROL = new LogisimMenuItem("RemoveControl");
 	
-	public static final LogisimMenuItem ADD_CIRCUIT = new LogisimMenuItem("AddCircuit");
+	public static final LogisimMenuItem ADD_LOGIC_CIRCUIT = new LogisimMenuItem("AddLogicCircuit");
+	public static final LogisimMenuItem ADD_SCRIPTED_CIRCUIT = new LogisimMenuItem("AddScriptedCircuit");
 	public static final LogisimMenuItem MOVE_CIRCUIT_UP = new LogisimMenuItem("MoveCircuitUp");
 	public static final LogisimMenuItem MOVE_CIRCUIT_DOWN = new LogisimMenuItem("MoveCircuitDown");
 	public static final LogisimMenuItem SET_MAIN_CIRCUIT = new LogisimMenuItem("SetMainCircuit");

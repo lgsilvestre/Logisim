@@ -20,7 +20,7 @@ import com.cburch.logisim.data.Direction;
 import com.cburch.logisim.instance.Instance;
 import com.cburch.logisim.instance.StdAttr;
 
-public class CircuitAttributes extends AbstractAttributeSet {
+public class LogicCircuitAttributes extends AbstractAttributeSet {
 	public static final Attribute<String> NAME_ATTR
 		= Attributes.forString("circuit", Strings.getter("circuitName"));
 	
@@ -46,7 +46,7 @@ public class CircuitAttributes extends AbstractAttributeSet {
 		= Arrays.asList(new Attribute<?>[] {
 				StdAttr.FACING, StdAttr.LABEL, LABEL_LOCATION_ATTR,
 				StdAttr.LABEL_FONT,
-				CircuitAttributes.NAME_ATTR, CIRCUIT_LABEL_ATTR,
+				LogicCircuitAttributes.NAME_ATTR, CIRCUIT_LABEL_ATTR,
 				CIRCUIT_LABEL_FACING_ATTR, CIRCUIT_LABEL_FONT_ATTR,
 			});
 	
@@ -88,7 +88,7 @@ public class CircuitAttributes extends AbstractAttributeSet {
 	
 	static AttributeSet createBaseAttrs(Circuit source, String name) {
 		AttributeSet ret = AttributeSets.fixedSet(STATIC_ATTRS, STATIC_DEFAULTS);
-		ret.setValue(CircuitAttributes.NAME_ATTR, name);
+		ret.setValue(LogicCircuitAttributes.NAME_ATTR, name);
 		ret.addAttributeListener(new StaticListener(source));
 		return ret;
 	}
@@ -102,7 +102,7 @@ public class CircuitAttributes extends AbstractAttributeSet {
 	private MyListener listener;
 	private Instance[] pinInstances;
 	
-	public CircuitAttributes(Circuit source) {
+	public LogicCircuitAttributes(Circuit source) {
 		this.source = source;
 		subcircInstance = null;
 		facing = source.getAppearance().getFacing();
@@ -135,7 +135,7 @@ public class CircuitAttributes extends AbstractAttributeSet {
 
 	@Override
 	protected void copyInto(AbstractAttributeSet dest) {
-		CircuitAttributes other = (CircuitAttributes) dest;
+		LogicCircuitAttributes other = (LogicCircuitAttributes) dest;
 		other.subcircInstance = null;
 		other.listener = null;
 	}

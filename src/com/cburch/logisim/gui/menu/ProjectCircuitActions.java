@@ -24,6 +24,8 @@ import com.cburch.logisim.analyze.model.AnalyzerModel;
 import com.cburch.logisim.circuit.Analyze;
 import com.cburch.logisim.circuit.AnalyzeException;
 import com.cburch.logisim.circuit.Circuit;
+import com.cburch.logisim.circuit.LogicCircuit;
+import com.cburch.logisim.circuit.ScriptedCircuit;
 import com.cburch.logisim.file.LogisimFileActions;
 import com.cburch.logisim.instance.Instance;
 import com.cburch.logisim.instance.StdAttr;
@@ -36,14 +38,24 @@ import com.cburch.logisim.util.StringUtil;
 public class ProjectCircuitActions {
 	private ProjectCircuitActions() { }
 	
-	public static void doAddCircuit(Project proj) {
+	public static void doAddLogicCircuit(Project proj) {
 		String name = promptForCircuitName(proj.getFrame(), proj.getLogisimFile(), "");
 		if (name != null) {
-			Circuit circuit = new Circuit(name);
+			Circuit circuit = new LogicCircuit(name);
 			proj.doAction(LogisimFileActions.addCircuit(circuit));
 			proj.setCurrentCircuit(circuit);
 		}
 	}
+	
+	public static void doAddScriptedCircuit(Project proj) {
+		String name = promptForCircuitName(proj.getFrame(), proj.getLogisimFile(), "");
+		if (name != null) {
+			Circuit circuit = new ScriptedCircuit(name);
+			proj.doAction(LogisimFileActions.addCircuit(circuit));
+			proj.setCurrentCircuit(circuit);
+		}
+	}
+
 
 	private static String promptForCircuitName(JFrame frame,
 			Library lib, String initialValue) {

@@ -22,6 +22,7 @@ import com.cburch.draw.model.AbstractCanvasObject;
 import com.cburch.logisim.LogisimVersion;
 import com.cburch.logisim.Main;
 import com.cburch.logisim.circuit.Circuit;
+import com.cburch.logisim.circuit.LogicCircuit;
 import com.cburch.logisim.circuit.appear.AppearanceSvgReader;
 import com.cburch.logisim.comp.Component;
 import com.cburch.logisim.data.Attribute;
@@ -91,7 +92,7 @@ class XmlReader {
 				if (name == null || name.equals("")) {
 					addError(Strings.get("circNameMissingError"), "C??");
 				}
-				CircuitData circData = new CircuitData(circElt, new Circuit(name));
+				CircuitData circData = new CircuitData(circElt, new LogicCircuit(name));
 				file.addCircuit(circData.circuit);
 				circData.knownComponents = loadKnownComponents(circElt);
 				for (Element appearElt : XmlIterator.forChildElements(circElt, "appear")) {
@@ -373,7 +374,7 @@ class XmlReader {
 		ReadContext context = new ReadContext(file);
 		context.toLogisimFile(elt);
 		if (file.getCircuitCount() == 0) {
-			file.addCircuit(new Circuit("main"));
+			file.addCircuit(new LogicCircuit("main"));
 		}
 		if (context.messages.size() > 0) {
 			StringBuilder all = new StringBuilder();
