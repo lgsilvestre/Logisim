@@ -62,6 +62,7 @@ public class LogisimMenuBar extends JMenuBar {
 			project.localeChanged();
 			simulate.localeChanged();
 			help.localeChanged();
+			menupy.localeChanged();
 		}
 	}
 	
@@ -78,6 +79,7 @@ public class LogisimMenuBar extends JMenuBar {
 	private MenuProject project;
 	private MenuSimulate simulate;
 	private MenuHelp help;
+	private MenuPy menupy;
 	
 	public LogisimMenuBar(JFrame parent, Project proj) {
 		this.parent = parent;
@@ -91,6 +93,7 @@ public class LogisimMenuBar extends JMenuBar {
 		add(simulate = new MenuSimulate(this));
 		add(new WindowMenu(parent));
 		add(help = new MenuHelp(this));
+		add(menupy = new MenuPy(this));
 		
 		LocaleManager.addLocaleListener(listener);
 		listener.localeChanged();
