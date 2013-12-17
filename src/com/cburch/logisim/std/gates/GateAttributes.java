@@ -17,7 +17,7 @@ import com.cburch.logisim.instance.StdAttr;
 class GateAttributes extends AbstractAttributeSet {
 	static final int MAX_INPUTS = 32;
 	static final int DELAY = 1;
-
+	
 	static final AttributeOption SIZE_NARROW
 		= new AttributeOption(Integer.valueOf(30),
 			Strings.getter("gateSizeNarrowOpt"));

@@ -5,11 +5,9 @@ package com.cburch.logisim.gui.menu;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.util.Locale;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-
 import org.python.core.PyException;
 import org.python.core.PyInteger;
 import org.python.core.PyObject;

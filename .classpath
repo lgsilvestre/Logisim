@@ -8,5 +8,6 @@
 	<classpathentry exported="true" kind="lib" path="libs/MRJAdapter.jar"/>
 	<classpathentry kind="lib" path="libs/jython-2.5.3.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/Rubén/Desktop/bsh-2.0b4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
