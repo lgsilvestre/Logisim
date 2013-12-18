@@ -24,6 +24,19 @@ class GateFunctions {
 		return ret;
 	}
 	
+	
+	/**************************/
+	
+	static Value computeNewAnd(Value[] inputs, int numInputs) {
+		Value ret = inputs[0];
+		for (int i = 1; i < numInputs; i++) {
+			ret = ret.or(inputs[i]);
+		}
+		return ret;
+	}
+	
+	/**************************/
+	
 	static Value computeOddParity(Value[] inputs, int numInputs) {
 		Value ret = inputs[0];
 		for (int i = 1; i < numInputs; i++) {

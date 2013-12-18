@@ -38,6 +38,9 @@ public interface StdAttr {
 	public static final Attribute<String> LABEL
 		= Attributes.forString("label", Strings.getter("stdLabelAttr"));
 
+	public static final Attribute<String> CODE
+	= Attributes.forString("label", Strings.getter("stdLabelAttr"));
+	
 	public static final Attribute<Font> LABEL_FONT
 		= Attributes.forFont("labelfont", Strings.getter("stdLabelFontAttr"));
 	public static final Font DEFAULT_LABEL_FONT

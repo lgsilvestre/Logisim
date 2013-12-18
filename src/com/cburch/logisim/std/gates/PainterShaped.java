@@ -77,6 +77,20 @@ public class PainterShaped {
 		}
 	}
 	
+	static void paintNewAnd(InstancePainter painter, int width, int height) {
+		Graphics g = painter.getGraphics();
+		GraphicsUtil.switchToWidth(g, 2);
+		int[] xp = new int[] { -width / 2, -width + 1, -width + 1, -width / 2 }; 
+		int[] yp = new int[] { -width / 2, -width / 2, width / 2, width / 2 };
+		g.setColor(Color.YELLOW);
+		GraphicsUtil.drawCenteredArc(g, -width / 2, 0, width / 2, -90, 180);
+
+		g.drawPolyline(xp, yp, 4);
+		if (height > width) {
+			g.drawLine(-width + 1, -height / 2, -width + 1, height / 2);
+		}
+	}
+	
 	static void paintOr(InstancePainter painter, int width, int height) {
 		Graphics g = painter.getGraphics();
 		GraphicsUtil.switchToWidth(g, 2);

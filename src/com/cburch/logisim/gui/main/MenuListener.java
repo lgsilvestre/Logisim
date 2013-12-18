@@ -131,7 +131,8 @@ class MenuListener {
 				circ.getAppearance().addCanvasModelListener(this);
 			}
 			
-			menubar.addActionListener(LogisimMenuBar.ADD_CIRCUIT, this);
+			menubar.addActionListener(LogisimMenuBar.ADD_LOGIC_CIRCUIT, this);
+			menubar.addActionListener(LogisimMenuBar.ADD_SCRIPTED_CIRCUIT, this);
 			menubar.addActionListener(LogisimMenuBar.MOVE_CIRCUIT_UP, this);
 			menubar.addActionListener(LogisimMenuBar.MOVE_CIRCUIT_DOWN, this);
 			menubar.addActionListener(LogisimMenuBar.SET_MAIN_CIRCUIT, this);
@@ -176,9 +177,12 @@ class MenuListener {
 			Object src = event.getSource();
 			Project proj = frame.getProject();
 			Circuit cur = proj == null ? null : proj.getCurrentCircuit();
-			if (src == LogisimMenuBar.ADD_CIRCUIT) {
-				ProjectCircuitActions.doAddCircuit(proj);
-			} else if (src == LogisimMenuBar.MOVE_CIRCUIT_UP) {
+			if (src == LogisimMenuBar.ADD_LOGIC_CIRCUIT) {
+				ProjectCircuitActions.doAddLogicCircuit(proj);
+			} else if (src == LogisimMenuBar.ADD_SCRIPTED_CIRCUIT) {
+				ProjectCircuitActions.doAddScriptedCircuit(proj);
+			}
+			else if (src == LogisimMenuBar.MOVE_CIRCUIT_UP) {
 				ProjectCircuitActions.doMoveCircuit(proj, cur, -1);
 			} else if (src == LogisimMenuBar.MOVE_CIRCUIT_DOWN) {
 				ProjectCircuitActions.doMoveCircuit(proj, cur, 1);
@@ -231,7 +235,8 @@ class MenuListener {
 					&& !cur.getAppearance().isDefaultAppearance();
 			}
 			
-			menubar.setEnabled(LogisimMenuBar.ADD_CIRCUIT, true);
+			menubar.setEnabled(LogisimMenuBar.ADD_LOGIC_CIRCUIT, true);
+			menubar.setEnabled(LogisimMenuBar.ADD_SCRIPTED_CIRCUIT, true);
 			menubar.setEnabled(LogisimMenuBar.MOVE_CIRCUIT_UP, canMoveUp);
 			menubar.setEnabled(LogisimMenuBar.MOVE_CIRCUIT_DOWN, canMoveDown);
 			menubar.setEnabled(LogisimMenuBar.SET_MAIN_CIRCUIT, canSetMain);

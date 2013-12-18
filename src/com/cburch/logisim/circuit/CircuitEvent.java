@@ -11,7 +11,9 @@ public class CircuitEvent {
 	public final static int ACTION_CHANGE   = 3; // component changed
 	public final static int ACTION_INVALIDATE   = 4; // component invalidated (pin types changed)
 	public final static int ACTION_CLEAR    = 5; // entire circuit cleared
-	public final static int TRANSACTION_DONE = 6;
+	public final static int ACTION_SET_NUMINPUTS    = 6; // sets the number of inputs
+	public final static int ACTION_SET_NUMOUTPUTS    = 7; // sets the number of outputs
+	public final static int TRANSACTION_DONE = 8;
 
 	private int action;
 	private Circuit circuit;

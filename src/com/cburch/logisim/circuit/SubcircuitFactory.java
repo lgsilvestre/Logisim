@@ -121,7 +121,7 @@ public class SubcircuitFactory extends InstanceFactory {
 
 	@Override
 	public AttributeSet createAttributeSet() {
-		return new CircuitAttributes(source);
+		return new LogicCircuitAttributes(source);
 	}
 	
 	//
@@ -129,7 +129,7 @@ public class SubcircuitFactory extends InstanceFactory {
 	//
 	@Override
 	public void configureNewInstance(Instance instance) {
-		CircuitAttributes attrs = (CircuitAttributes) instance.getAttributeSet();
+		LogicCircuitAttributes attrs = (LogicCircuitAttributes) instance.getAttributeSet();
 		attrs.setSubcircuit(instance);
 		
 		instance.addAttributeListener();
@@ -141,7 +141,7 @@ public class SubcircuitFactory extends InstanceFactory {
 	public void instanceAttributeChanged(Instance instance, Attribute<?> attr) {
 		if (attr == StdAttr.FACING) {
 			computePorts(instance);
-		} else if (attr == CircuitAttributes.LABEL_LOCATION_ATTR) {
+		} else if (attr == LogicCircuitAttributes.LABEL_LOCATION_ATTR) {
 			configureLabel(instance);
 		}
 	}
@@ -173,7 +173,7 @@ public class SubcircuitFactory extends InstanceFactory {
 			}
 		}
 		
-		CircuitAttributes attrs = (CircuitAttributes) instance.getAttributeSet();
+		LogicCircuitAttributes attrs = (LogicCircuitAttributes) instance.getAttributeSet();
 		attrs.setPinInstances(pins);
 		instance.setPorts(ports);
 		instance.recomputeBounds();
@@ -182,7 +182,7 @@ public class SubcircuitFactory extends InstanceFactory {
 	
 	private void configureLabel(Instance instance) {
 		Bounds bds = instance.getBounds();
-		Direction loc = instance.getAttributeValue(CircuitAttributes.LABEL_LOCATION_ATTR);
+		Direction loc = instance.getAttributeValue(LogicCircuitAttributes.LABEL_LOCATION_ATTR);
 		
 		int x = bds.getX() + bds.getWidth() / 2;
 		int y = bds.getY() + bds.getHeight() / 2;
@@ -229,7 +229,7 @@ public class SubcircuitFactory extends InstanceFactory {
 	public void propagate(InstanceState superState) {
 		CircuitState subState = getSubstate(superState);
 
-		CircuitAttributes attrs = (CircuitAttributes) superState.getAttributeSet();
+		LogicCircuitAttributes attrs = (LogicCircuitAttributes) superState.getAttributeSet();
 		Instance[] pins = attrs.getPinInstances();
 		for (int i = 0; i < pins.length; i++) {
 			Instance pin = pins[i];
@@ -275,7 +275,7 @@ public class SubcircuitFactory extends InstanceFactory {
 	}
 	
 	private void paintBase(InstancePainter painter, Graphics g) {
-		CircuitAttributes attrs = (CircuitAttributes) painter.getAttributeSet();
+		LogicCircuitAttributes attrs = (LogicCircuitAttributes) painter.getAttributeSet();
 		Direction facing = attrs.getFacing();
 		Direction defaultFacing = source.getAppearance().getFacing();
 		Location loc = painter.getLocation();
@@ -289,10 +289,10 @@ public class SubcircuitFactory extends InstanceFactory {
 	private void drawCircuitLabel(InstancePainter painter, Bounds bds,
 			Direction facing, Direction defaultFacing) {
 		AttributeSet staticAttrs = source.getStaticAttributes();
-		String label = staticAttrs.getValue(CircuitAttributes.CIRCUIT_LABEL_ATTR);
+		String label = staticAttrs.getValue(LogicCircuitAttributes.CIRCUIT_LABEL_ATTR);
 		if (label != null && !label.equals("")) {
-			Direction up = staticAttrs.getValue(CircuitAttributes.CIRCUIT_LABEL_FACING_ATTR);
-			Font font = staticAttrs.getValue(CircuitAttributes.CIRCUIT_LABEL_FONT_ATTR);
+			Direction up = staticAttrs.getValue(LogicCircuitAttributes.CIRCUIT_LABEL_FACING_ATTR);
+			Font font = staticAttrs.getValue(LogicCircuitAttributes.CIRCUIT_LABEL_FONT_ATTR);
 
 			int back = label.indexOf('\\');
 			int lines = 1;

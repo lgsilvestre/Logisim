@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 import com.cburch.logisim.circuit.Circuit;
+import com.cburch.logisim.circuit.LogicCircuit;
 import com.cburch.logisim.file.LoadFailedException;
 import com.cburch.logisim.file.Loader;
 import com.cburch.logisim.file.LogisimFile;
@@ -86,7 +87,7 @@ public class ProjectActions {
 			file = loader.openLogisimFile(templReader);
 		} catch (Throwable t) {
 			file = LogisimFile.createNew(loader);
-			file.addCircuit(new Circuit("main"));
+			file.addCircuit(new LogicCircuit("main"));
 		} finally {
 			try { templReader.close(); } catch (IOException e) { }
 		}

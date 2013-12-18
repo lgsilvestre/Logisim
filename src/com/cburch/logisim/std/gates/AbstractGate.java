@@ -44,6 +44,7 @@ abstract class AbstractGate extends InstanceFactory {
 	private int bonusWidth = 0;
 	private boolean negateOutput = false;
 	private boolean isXor = false;
+	private boolean isScript = false;
 	private String rectLabel = "";
 	private boolean paintInputLines;
 
@@ -54,6 +55,17 @@ abstract class AbstractGate extends InstanceFactory {
 	protected AbstractGate(String name, StringGetter desc, boolean isXor) {
 		super(name, desc);
 		this.isXor = isXor;
+		setFacingAttribute(StdAttr.FACING);
+		setKeyConfigurator(JoinedConfigurator.create(   
+			new IntegerConfigurator(GateAttributes.ATTR_INPUTS, 2,
+					GateAttributes.MAX_INPUTS, 0),
+			new BitWidthConfigurator(StdAttr.WIDTH)));
+	}
+	
+	protected AbstractGate(String name, StringGetter desc, boolean isXor, boolean isScript) {
+		super(name, desc);
+		this.isXor = isXor;
+		this.isScript = isXor;
 		setFacingAttribute(StdAttr.FACING);
 		setKeyConfigurator(JoinedConfigurator.create(   
 			new IntegerConfigurator(GateAttributes.ATTR_INPUTS, 2,

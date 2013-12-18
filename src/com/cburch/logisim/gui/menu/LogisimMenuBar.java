@@ -36,7 +36,8 @@ public class LogisimMenuBar extends JMenuBar {
 	public static final LogisimMenuItem ADD_CONTROL = new LogisimMenuItem("AddControl");
 	public static final LogisimMenuItem REMOVE_CONTROL = new LogisimMenuItem("RemoveControl");
 	
-	public static final LogisimMenuItem ADD_CIRCUIT = new LogisimMenuItem("AddCircuit");
+	public static final LogisimMenuItem ADD_LOGIC_CIRCUIT = new LogisimMenuItem("AddLogicCircuit");
+	public static final LogisimMenuItem ADD_SCRIPTED_CIRCUIT = new LogisimMenuItem("AddScriptedCircuit");
 	public static final LogisimMenuItem MOVE_CIRCUIT_UP = new LogisimMenuItem("MoveCircuitUp");
 	public static final LogisimMenuItem MOVE_CIRCUIT_DOWN = new LogisimMenuItem("MoveCircuitDown");
 	public static final LogisimMenuItem SET_MAIN_CIRCUIT = new LogisimMenuItem("SetMainCircuit");
@@ -61,6 +62,7 @@ public class LogisimMenuBar extends JMenuBar {
 			project.localeChanged();
 			simulate.localeChanged();
 			help.localeChanged();
+			menupy.localeChanged();
 		}
 	}
 	
@@ -77,6 +79,7 @@ public class LogisimMenuBar extends JMenuBar {
 	private MenuProject project;
 	private MenuSimulate simulate;
 	private MenuHelp help;
+	private MenuPy menupy;
 	
 	public LogisimMenuBar(JFrame parent, Project proj) {
 		this.parent = parent;
@@ -90,6 +93,7 @@ public class LogisimMenuBar extends JMenuBar {
 		add(simulate = new MenuSimulate(this));
 		add(new WindowMenu(parent));
 		add(help = new MenuHelp(this));
+		add(menupy = new MenuPy(this));
 		
 		LocaleManager.addLocaleListener(listener);
 		listener.localeChanged();

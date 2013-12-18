@@ -18,6 +18,7 @@ public class Gates extends Library {
 			new AddTool(NotGate.FACTORY),
 			new AddTool(Buffer.FACTORY),
 			new AddTool(AndGate.FACTORY),
+			new AddTool(NewAndGate.FACTORY),
 			new AddTool(OrGate.FACTORY),
 			new AddTool(NandGate.FACTORY),
 			new AddTool(NorGate.FACTORY),

@@ -10,7 +10,7 @@ import java.util.Enumeration;
 
 import javax.swing.tree.TreeNode;
 
-import com.cburch.logisim.circuit.CircuitAttributes;
+import com.cburch.logisim.circuit.LogicCircuitAttributes;
 import com.cburch.logisim.circuit.CircuitEvent;
 import com.cburch.logisim.circuit.CircuitListener;
 import com.cburch.logisim.circuit.CircuitState;
@@ -183,7 +183,7 @@ class SimulationTreeCircuitNode extends SimulationTreeNode
 
 	public void attributeValueChanged(AttributeEvent e) {
 		Object attr = e.getAttribute();
-		if (attr == CircuitAttributes.CIRCUIT_LABEL_ATTR || attr == StdAttr.LABEL) {
+		if (attr == LogicCircuitAttributes.CIRCUIT_LABEL_ATTR || attr == StdAttr.LABEL) {
 			model.fireNodeChanged(this);
 		}
 	}
