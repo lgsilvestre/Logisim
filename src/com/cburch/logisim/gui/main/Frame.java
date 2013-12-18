@@ -225,7 +225,7 @@ public class Frame extends LFrame implements LocaleListener {
 		mainPanelSuper = new JPanel(new BorderLayout());
 		canvasPane.setZoomModel(layoutZoomModel);
 		mainPanel = new CardPanel();
-		mainPanel.addView(EDIT_LAYOUT, canvasPane);
+		mainPanel.addView(EDIT_LAYOUT, new TabbedCanvas());
 		mainPanel.setView(EDIT_LAYOUT);
 		mainPanelSuper.add(mainPanel, BorderLayout.CENTER);
 

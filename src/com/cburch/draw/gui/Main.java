@@ -25,7 +25,7 @@ public class Main {
 		Drawing model = new Drawing();
 		CanvasObject rect = attrs.applyTo(new Rectangle(25, 25, 50, 50));
 		model.addObjects(0, Collections.singleton(rect));
-
+		
 		showFrame(model, "Drawing 1");
 		showFrame(model, "Drawing 2");
 	}
@@ -34,7 +34,8 @@ public class Main {
 		JFrame frame = new JFrame(title);
 		DrawingAttributeSet attrs = new DrawingAttributeSet();
 
-		Canvas canvas = new Canvas();
+		
+		Canvas canvas = new Canvas(); //probable lugar de cambio.
 		Toolbar toolbar = new Toolbar(canvas, attrs);
 		canvas.setModel(model, new UndoLogDispatcher(new UndoLog()));
 		canvas.setTool(toolbar.getDefaultTool());

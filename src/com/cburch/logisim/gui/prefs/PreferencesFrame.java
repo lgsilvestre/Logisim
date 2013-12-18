@@ -91,6 +91,7 @@ public class PreferencesFrame extends LFrame {
 				new WindowOptions(this),
 				new LayoutOptions(this),
 				new ExperimentalOptions(this),
+					
 		};
 		tabbedPane = new JTabbedPane();
 		int intlIndex = -1;
